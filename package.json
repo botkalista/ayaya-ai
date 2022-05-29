@@ -1,0 +1,15 @@
+{
+  "name": "ayaya-ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "compile": "tsc --p tsconfig.json && node ayaya-compiler.js"
+  },
+  "keywords": [],
+  "author": "Emily",
+  "license": "MIT"
+}
