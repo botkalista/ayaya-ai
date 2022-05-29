@@ -11,7 +11,7 @@ const target = { x: 350, y: 250 }
 
 const missiles = [];
 
-const start_ttl = 300;
+const start_ttl = 200;
 let ttl = start_ttl;
 
 function setup() {
@@ -42,6 +42,12 @@ function draw() {
         missile.render();
     }
 
+
+    noStroke();
+    fill(0);
+    text('Best: ' + gen.score.best.toFixed(2) + ' (gen ' + gen.score.bestGen + ')', 10, 18);
+    text('Last: MAX ' + gen.score.max.toFixed(2) + ' | AVG ' + gen.score.avg.toFixed(2), 10, 35);
+
     ttl--;
     if (ttl == 0) {
         noLoop();
@@ -50,7 +56,7 @@ function draw() {
             gen.entities[i].setScore(score);
         }
         gen.nextGeneration(0.05, { trucateHalf: true });
-        console.log(gen.score);
+
         ttl = start_ttl;
         missiles.length = 0;
         for (let i = 0; i < gen.entities.length; i++) {

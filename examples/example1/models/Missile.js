@@ -7,6 +7,7 @@ export default class Missile {
         this.acc = { x: 0, y: 0 }
         this.size = 10;
         this.rot = 0;
+        this.maxSpeed = 3;
     }
 
     applyForce(x, y) {
@@ -21,8 +22,8 @@ export default class Missile {
         this.acc.x += this.force.x;
         this.acc.y += this.force.y;
 
-        this.acc.x = Math.max(Math.min(this.acc.x, 2), -2);
-        this.acc.y = Math.max(Math.min(this.acc.y, 2), -2);
+        this.acc.x = Math.max(Math.min(this.acc.x, this.maxSpeed), -this.maxSpeed);
+        this.acc.y = Math.max(Math.min(this.acc.y, this.maxSpeed), -this.maxSpeed);
 
         this.pos.x += this.acc.x;
         this.pos.y += this.acc.y;
